@@ -7,7 +7,7 @@
         <img src="{{ asset('images/albums/' . $album_cover . '.jpg') }}" alt="{{ $name }}" class="w-full max-w-xs h-auto object-cover">
     </div>
 
-    <h4 class="text-gray-500 text-sm italic mb-4" style="font-size: 1rem;">Released: {{ $album_url }}</h4>
-    <h2 class="text-gray-500 text-sm italic mb-4" style="font-size: 1rem;">Released: {{ $runtime }}</h2>
+    <h4 class="text-gray-500 text-sm italic mb-4" style="font-size: 1rem;">Link: <a href="{{ $album_url }}">{{ $album_url }}</a></h4>
+    <h2 class="text-gray-500 text-sm italic mb-4" style="font-size: 1rem;">Runtime: {{ $runtime }}</h2>
     <h2 class="text-gray-500 text-sm italic mb-4" style="font-size: 1rem;">Released: {{ $release_date }}</h2>
 </div>
