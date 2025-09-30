@@ -4,6 +4,6 @@
     <h4 class="font-bold text-lg">{{ $name }}</h4>
     <h4 class="font-bold text-lg">Runtime: {{ $runtime }}</h4>
     <h4 class="font-bold text-lg">{{ $release_date }}</h4>
-    <h5 class="font-bold text-lg">{{ $album_url }}</h5>
+    <!-- <h4 class="font-bold text-lg">{{ $album_url }}</h4> Commented because irrelevant until you click on the details. -->
     <img src="{{asset( 'images/albums/' . $album_cover . '.jpg')}}" alt="{{$name}}">
 </div>
