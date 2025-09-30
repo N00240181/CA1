@@ -15,6 +15,7 @@
                         :release_date="$album->release_date"
                         :album_url="$album->album_url"
                         :album_cover="$album->album_cover"
+                        :spotify_link="$album->spotify_link"
                     />
                 </div>
             </div>
