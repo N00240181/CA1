@@ -6,12 +6,8 @@ use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
 {
-    /**
-     * Seed the application's database.
-     */
     public function run(): void
     {
-        // Call the SongSeeder
-        $this->call(SongSeeder::class);
+        $this->call(AlbumSeeder::class);
     }
 }

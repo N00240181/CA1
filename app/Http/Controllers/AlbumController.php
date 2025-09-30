@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Song;
+use App\Models\Album;
 use Illuminate\Http\Request;
 
-class SongController extends Controller
+class AlbumController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -34,7 +34,7 @@ class SongController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Song $song)
+    public function show(Album $album)
     {
         //
     }
@@ -42,7 +42,7 @@ class SongController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Song $song)
+    public function edit(Album $album)
     {
         //
     }
@@ -50,7 +50,7 @@ class SongController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Song $song)
+    public function update(Request $request, Album $album)
     {
         //
     }
@@ -58,7 +58,7 @@ class SongController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Song $song)
+    public function destroy(Album $album)
     {
         //
     }
