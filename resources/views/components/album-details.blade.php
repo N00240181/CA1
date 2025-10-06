@@ -4,11 +4,11 @@
     <h1 class="font-bold text-black-600 mb-2" style="font-size: 3rem;">{{ $name }}</h1>
 
     <div class="overflow-hidden rounded-lg mb-4 flex justify-center">
-        <img src="{{ asset('images/albums/' . $album_cover . '.jpg') }}" alt="{{ $name }}" class="w-full max-w-xs h-auto object-cover">
+        <img src="{{ asset('images/albums/' . $album_cover . '.gif') }}" alt="{{ $name }}" class="w-full max-w-xs h-auto object-cover">
     </div>
 
     <h4 class="text-gray-500 text-sm italic mb-4" style="font-size: 1rem;">Link: <a href="{{ $album_url }}">{{ $album_url }}</a></h4>
-    <h2 class="text-gray-500 text-sm italic mb-4" style="font-size: 1rem;">Runtime: {{ $runtime }}</h2>
+    <h2 class="text-gray-500 text-sm italic mb-4" style="font-size: 1rem;">Runtime: {{ $runtime }} mins</h2>
     <h2 class="text-gray-500 text-sm italic mb-4" style="font-size: 1rem;">Released: {{ $release_date }}</h2>
     <iframe data-testid="embed-iframe" style="border-radius:12px" src="https://open.spotify.com/embed/album/{{$spotify_link}}?utm_source=generator" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
 </div>
