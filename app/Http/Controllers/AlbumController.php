@@ -21,7 +21,7 @@ class AlbumController extends Controller
      */
     public function create()
     {
-        //
+        return view('albums.create');
     }
 
     /**
@@ -29,7 +29,30 @@ class AlbumController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'name' => 'required|string|max:255',
+            'release_date' => 'required|date',
+            'runtime' => 'required|integer',
+            'album_url' => 'required|url',
+            'album_cover' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
+            'spotify_link' => 'required|url',
+        ]);
+
+        /* if ($request->hasFile('album_cover')) {
+            $coverName = time().'.'.$request->album_cover->extension();
+            $request->album_cover->move(public_path('images/albums'), $coverName);
+        } This causes issues might fix later but no album will have the same name. Perhaps Ill introduce a drop down later.*/
+
+        Album::create([
+            'name' => $request->name,
+            'release_date' => $request->release_date,
+            'runtime' => $request->runtime,
+            'album_url' => $request->album_url,
+            'album_cover' => $request->album_cover,
+            'spotify_link' => $request->spotify_link,
+        ]);
+
+        return to_route('albums.index')->with('success', 'Album created successfully!');
     }
 
     /**
