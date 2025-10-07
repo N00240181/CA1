@@ -4,7 +4,7 @@
     <h1 class="font-bold text-black-600 mb-2" style="font-size: 3rem;">{{ $name }}</h1>
 
     <div class="overflow-hidden rounded-lg mb-4 flex justify-center">
-        <img src="{{ asset('images/albums/' . $album_cover . '.gif') }}" alt="{{ $name }}" class="class="w-full h-auto mt-4 rounded-lg object-cover"">
+        <img src="{{ asset('images/albums/' . $album_cover ) }}" alt="{{ $name }}" class="class="w-full h-auto mt-4 rounded-lg object-cover"">
     </div>
 
     <h4 class="text-gray-500 text-sm italic mb-4" style="font-size: 1rem;">Link: <a href="{{ $album_url }}">{{ $album_url }}</a></h4>

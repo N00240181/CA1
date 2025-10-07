@@ -1,4 +1,4 @@
-@props(['action', 'method'])
+@props(['action', 'method', 'album'])
 
 <form action="{{ $action }}" method="POST" enctype="multipart/form-data">
     @csrf <!-- I made my own Laravel CRUD on the first week following this video https://www.youtube.com/watch?v=cDEVWbz2PpQ&pp=ygUMbGFyYXZlbCBjcnVk and I remember @csrf is used for security and it prevents other sites from accessing valuable cookies.  -->

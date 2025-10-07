@@ -4,5 +4,5 @@
     <h4 class="font-bold text-lg">{{ $name }}</h4>
     <h4 class="font-bold text-lg">Runtime: {{ $runtime }} mins</h4>
     <h4 class="font-bold text-lg">{{ $release_date }}</h4>
-    <img src="{{asset( 'images/albums/' . $album_cover . '.gif')}}" alt="{{$name}}" class="w-full h-auto mt-4 rounded-lg object-cover">
+    <img src="{{asset( 'images/albums/' . $album_cover )}}" alt="{{$name}}" class="w-full h-auto mt-4 rounded-lg object-cover">
 </div>

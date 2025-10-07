@@ -35,20 +35,20 @@ class AlbumController extends Controller
             'runtime' => 'required|integer',
             'album_url' => 'required|url',
             'album_cover' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
-            'spotify_link' => 'required|url',
+            'spotify_link' => 'required|string',
         ]);
 
-        /* if ($request->hasFile('album_cover')) {
-            $coverName = time().'.'.$request->album_cover->extension();
-            $request->album_cover->move(public_path('images/albums'), $coverName);
-        } This causes issues might fix later but no album will have the same name. Perhaps Ill introduce a drop down later.*/
+        if ($request->hasFile('album_cover')) {
+            $imageName = time().'.'.$request->album_cover->extension();
+            $request->album_cover->move(public_path('images/albums'), $imageName);
+        }
 
         Album::create([
             'name' => $request->name,
             'release_date' => $request->release_date,
             'runtime' => $request->runtime,
             'album_url' => $request->album_url,
-            'album_cover' => $request->album_cover,
+            'album_cover' => $imageName,
             'spotify_link' => $request->spotify_link,
         ]);
 
@@ -68,7 +68,7 @@ class AlbumController extends Controller
      */
     public function edit(Album $album)
     {
-        //
+        return view('albums.edit')->with('album', $album);
     }
 
     /**
@@ -76,7 +76,31 @@ class AlbumController extends Controller
      */
     public function update(Request $request, Album $album)
     {
-        //
+        $request->validate([
+            'name' => 'required|string|max:255',
+            'release_date' => 'required|date',
+            'runtime' => 'required|integer',
+            'album_url' => 'required|url',
+            'album_cover' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
+            'spotify_link' => 'required|string',
+        ]);
+
+        if ($request->hasFile('album_cover')) {
+            $coverName = time().'.'.$request->album_cover->extension();
+            $request->album_cover->move(public_path('images/albums'), $coverName);
+            $album->album_cover = $coverName;
+        }
+        
+        $album->update([
+            'name' => $request->name,
+            'release_date' => $request->release_date,
+            'runtime' => $request->runtime,
+            'album_url' => $request->album_url,
+            'album_cover' => $album->album_cover,
+            'spotify_link' => $request->spotify_link,
+        ]);
+ 
+        return to_route('albums.index')->with('success', 'Album updated successfully!');
     }
 
     /**
@@ -84,6 +108,8 @@ class AlbumController extends Controller
      */
     public function destroy(Album $album)
     {
-        //
+        $album->delete();
+
+        return to_route('albums.index')->with('success', 'Album deleted successfully!');
     }
 }
