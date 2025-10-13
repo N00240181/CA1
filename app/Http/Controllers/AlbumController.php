@@ -7,12 +7,24 @@ use Illuminate\Http\Request;
 
 class AlbumController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
-    public function index()
+    /* Shows all albums and if search exists use that */
+
+    /* public function index()
     {
         $albums = Album::all();
+        return view('albums.index', compact('albums'));
+    } */
+    public function index(Request $request)
+    {
+        $search = $request->input('search');
+    
+        if ($search) {
+            $albums = Album::where('name', 'like', '%' . $search . '%')->get();
+        }
+        else {
+            $albums = Album::all();
+        }
+    
         return view('albums.index', compact('albums'));
     }
 

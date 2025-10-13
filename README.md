@@ -1,7 +1,7 @@
 <p align center>Welcome to my CRUD project. I picked music for my database because I love all kinds of music and I felt like I could create a great project with it.
 
 Timeline:
-For my 1st week before we even started the project, I watched a video on creating a CRUD from scratch which you can see <a href="https://www.youtube.com/watch?v=cDEVWbz2PpQ&pp=ygUMbGFyYXZlbCBjcnVk">here</a> and I published it <a href="https://github.com/N00240181/Testing">here</a> if you're interested. I wanted to get a little headstart and become more familiar with Laravel. The video thought me about things like @csrf which prevents cross site tracking and cookie stealing and more about models, views and controllers.
+For my 1st week before we even started the project, I watched a video on creating a CRUD from scratch which you can see <a href="https://www.youtube.com/watch?v=cDEVWbz2PpQ&pp=ygUMbGFyYXZlbCBjcnVk" target="_blank">here</a> and I published it <a href="https://github.com/N00240181/Testing" target="_blank">here</a> if you're interested. I wanted to get a little headstart and become more familiar with Laravel. The video thought me about things like @csrf which prevents cross site tracking and cookie stealing and more about models, views and controllers.
 
 For my second week I settled on using albums for the database's theme. I was initially going to do songs however after lots of thought I decided albums would be better as the "main" table in the database. CA2 will include the artist and song tables and I may create a pivot table to make interacting between them easier.
 
@@ -9,6 +9,6 @@ For the third week I started following your tutorial from MS teams. Compared to 
 
 For the fourth week I created the edit, update and delete functions. The edit function was quite easy to make as it's like the create function just slightly different. The update and delete functions were even easier. During this week I accidently refreshed the migrations and lost loads of my albums which I uploaded to the database but didn't put in the seeder. This hurt my motivation but it didn't affect my code and I got it back to normal shortly after.
 
-For the fifth week I started commenting my code which looking back I should have done that as I was writing. My goal for the week was to create some sort of search or additional feature which can filter the albums and eventually the artists and their songs. A thought crossed my mind about making the site immune to SQL injection but apparently Laravel has some protections against it.
+For the fifth week I started commenting my code which looking back I should have done that as I was writing. My goal for the week was to create some sort of search or additional feature which can filter the albums and eventually the artists and their songs. A thought crossed my mind about making the site immune to SQL injection but apparently Laravel has some protections against it. I've tried creating a search bar using this video <a href="https://www.youtube.com/watch?v=R58XZ8pAXoE" target="_blank">here</a>. Finally I got it working, I had to get rid of a srarch request in the web.php file and I had to change my search in the index from post to get and now it works!
 
 </p>
