@@ -18,6 +18,7 @@ return new class extends Migration
             $table->date('release_date');
             $table->string('album_url');
             $table->string('album_cover');
+            $table->string('spotify_link');
         });
     }
 

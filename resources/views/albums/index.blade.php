@@ -9,12 +9,12 @@
         {{ session('success') }}
     </x-alert-success>
 
-    <div class="flex items-center max-w-md mx-auto p-3">
+    <!-- <div class="flex items-center max-w-md mx-auto p-3">
         <form action="{{ route('albums.index') }}" method="GET" class="flex w-full">
         <input type="text" name="search" id="search" placeholder="Search...">
         <button type="submit" class="ms-2 px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-700">Search</button>
         </form>
-    </div>
+    </div> -->
 
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
