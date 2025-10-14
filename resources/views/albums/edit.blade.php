@@ -5,6 +5,9 @@
         </h2>
     </x-slot>
 
+    <!-- This is the view for editing albums. It retrieves data from the album
+     form blade file which is used for creating and editing albums.  -->
+
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">

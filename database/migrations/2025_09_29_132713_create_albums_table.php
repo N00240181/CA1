@@ -6,9 +6,10 @@ use Illuminate\Support\Facades\Schema;
 
 return new class extends Migration
 {
-    /**
-     * Run the migrations.
-     */
+    /* This function creates the albums table on the mysql database. It creates all the columns
+    and their types, integer, string etc. It extends the migration class which means it builds
+    upon the existing migration class.*/
+
     public function up(): void
     {
         Schema::create('albums', function (Blueprint $table) {
@@ -22,9 +23,6 @@ return new class extends Migration
         });
     }
 
-    /**
-     * Reverse the migrations.
-     */
     public function down(): void
     {
         Schema::dropIfExists('albums');

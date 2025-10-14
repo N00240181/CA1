@@ -1,7 +1,12 @@
 @props(['action', 'method', 'album'])
 
+<!-- This is the view used for creating and editing albums. -->
+
 <form action="{{ $action }}" method="POST" enctype="multipart/form-data">
-    @csrf <!-- I made my own Laravel CRUD on the first week following this video https://www.youtube.com/watch?v=cDEVWbz2PpQ&pp=ygUMbGFyYXZlbCBjcnVk and I remember @csrf is used for security and it prevents other sites from accessing valuable cookies.  -->
+    @csrf <!-- I made my own Laravel CRUD on the first week following 
+    this video https://www.youtube.com/watch?v=cDEVWbz2PpQ&pp=ygUMbGFyYXZlbCBjcnVk 
+    and I remember @csrf is used for security 
+    and it prevents other sites from accessing valuable cookies. -->
     @if($method === 'PUT' || $method === 'PATCH')
         @method($method)
     @endif

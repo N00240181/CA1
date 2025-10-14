@@ -22,6 +22,8 @@
                 <div class="p-6 text-gray-900">
                     <h3 class="text-lg font-medium text-gray-900 mb-4">All Albums</h3>
                     <div class="grid grid-cols-1 sm:grid-cols2 lg:grid-cols-3 gap-6">
+                            <!-- This for each goes through all the albums and displays
+                             them as cards. -->
                             @foreach($albums as $album)
                                 <div class="border p-4 rounded-lg shadow-md">
                                 <a href="{{ route('albums.show', $album) }}">
@@ -34,7 +36,10 @@
                                         :spotify_link="$album->spotify_link"
                                         />
                                 </a>
-                            
+
+                                <!-- This div contains the routes to the edit and
+                                 delete functions to update and destroy albums. @csrf
+                                 is used for security to prevent cross site tracking. -->
                                 <div class="mt-4 flex space-x-2">
                                     <a href="{{ route('albums.edit', $album) }}" class="text-gray-600 bg-orange-300 hover:bg-orange-700 font-bold py-2 px-4 rounded">Edit</a>
 
@@ -46,7 +51,6 @@
                                 </div>
                             </div>
                             @endforeach
-                    </ul>
             </div>
         </div>
     </div>

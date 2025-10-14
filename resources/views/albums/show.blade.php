@@ -5,6 +5,9 @@
         </h2>
     </x-slot>
 
+    <!-- This is the view for the album-details file. It shows
+     more information about the album. -->
+
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">

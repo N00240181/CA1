@@ -6,3 +6,6 @@
     <h4 class="font-bold text-lg">{{ $release_date }}</h4>
     <img src="{{asset( 'images/albums/' . $album_cover )}}" alt="{{$name}}" class="w-auto mt-4 rounded-lg object-cover overflow-hidden" style="min-height: 300px; width: 300px;">
 </div>
+
+<!-- This file is used to display the album cards on the index view.
+The props imports attributes from the albums table. -->

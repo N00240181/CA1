@@ -5,6 +5,11 @@ use App\Http\Controllers\AlbumController;
 use App\Http\Controllers\ProfileController;
 use Phiki\Phast\Root;
 
+/* This file contains all of the routes for the project. Essentially these
+are all of the different pages of the website, for example albums.index is
+the index page which shows all of the albums. The pages are contained in the AlbumController
+which contains the page's functions. */
+
 Route::get('/', function () {
     return view('welcome');
 });

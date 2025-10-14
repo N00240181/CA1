@@ -5,6 +5,8 @@ namespace Database\Seeders;
 use Illuminate\Database\Seeder;
 use App\Models\Album;
 
+/* This is the seeder which populates the albums table with data. */
+
 class AlbumSeeder extends Seeder
 {
     public function run()
