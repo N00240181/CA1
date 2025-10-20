@@ -13,6 +13,8 @@
 
     <h4 class="text-gray-500 text-sm italic mb-4" style="font-size: 1rem;">Link: <a href="{{ $album_url }}">{{ $album_url }}</a></h4>
     <h2 class="text-gray-500 text-sm italic mb-4" style="font-size: 1rem;">Runtime: {{ $runtime }} mins</h2>
-    <h2 class="text-gray-500 text-sm italic mb-4" style="font-size: 1rem;">Released: {{ $release_date }}</h2>
-    <iframe data-testid="embed-iframe" style="border-radius:12px" src="https://open.spotify.com/embed/album/{{$spotify_link}}?utm_source=generator" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+    <h2 class="text-gray-500 text-sm italic mb-4" style="font-size: 1rem;">Released: {{ $release_date }}</h2>   
+    <?php if (connection_status() == 0) { ?>
+    <iframe data-testid="embed-iframe" style="border-radius:12px" src="https://open.spotify.com/embed/album/{{$spotify_link}}?utm_source=generator" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy""></iframe>
+    <?php } ?>
 </div>

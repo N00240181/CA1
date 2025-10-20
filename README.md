@@ -11,4 +11,6 @@ For the fourth week I created the edit, update and delete functions. The edit fu
 
 For the fifth week I started commenting my code which looking back I should have done that as I was writing. My goal for the week was to create some sort of search or additional feature which can filter the albums and eventually the artists and their songs. A thought crossed my mind about making the site immune to SQL injection but apparently Laravel has some protections against it. I've tried creating a search bar using this video <a href="https://www.youtube.com/watch?v=R58XZ8pAXoE" target="_blank">here</a>. Finally I got it working, I had to get rid of a srarch request in the web.php file and I had to change my search in the index from post to get and now it works! I changed some of my seed data as well as fixing it so it works when you seed it for the first time.
 
+Finally for this sixth week I'm going to look over it one last time and record the video of me explaining how the project works and showing it in action. I also realised that I should move the search bar from the navigation to the index, this way if the user attempts to search while on the dashboard it's not going to cause any errors. I've also changed some of the styles slightly and make some minor tweaks.
+
 </p>

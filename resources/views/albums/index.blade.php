@@ -21,6 +21,10 @@
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 text-gray-900">
                     <h3 class="text-lg font-medium text-gray-900 mb-4">All Albums</h3>
+                      <form action="{{ route('albums.index') }}" method="GET" class="flex w-full py-5">
+                        <input type="text" name="search" id="search" placeholder="Search...">
+                        <button type="submit" class="ms-2 px-4 py-2 bg-orange-500 text-white rounded hover:bg-orange-700">Search</button>
+                      </form>
                     <div class="grid grid-cols-1 sm:grid-cols2 lg:grid-cols-3 gap-6">
                             <!-- This for each goes through all the albums and displays
                              them as cards. -->
@@ -41,7 +45,7 @@
                                  delete functions to update and destroy albums. @csrf
                                  is used for security to prevent cross site tracking. -->
                                 <div class="mt-4 flex space-x-2">
-                                    <a href="{{ route('albums.edit', $album) }}" class="text-gray-600 bg-orange-300 hover:bg-orange-700 font-bold py-2 px-4 rounded">Edit</a>
+                                    <a href="{{ route('albums.edit', $album) }}" class="text-gray-600 bg-green-300 hover:bg-green-700 font-bold py-2 px-4 rounded">Edit</a>
 
                                     <form action="{{ route('albums.destroy', $album) }}" method="POST" onsubmit="return confirm('Are you sure you want to delete this album?');">
                                         @csrf
