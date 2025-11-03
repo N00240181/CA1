@@ -9,6 +9,9 @@
         {{ session('success') }}
     </x-alert-success>
 
+    <x-alert-error>
+        {{ session('error') }}
+    </x-alert-error>
     <!-- <div class="flex items-center max-w-md mx-auto p-3">
         <form action="{{ route('albums.index') }}" method="GET" class="flex w-full">
         <input type="text" name="search" id="search" placeholder="Search...">
@@ -44,6 +47,7 @@
                                 <!-- This div contains the routes to the edit and
                                  delete functions to update and destroy albums. @csrf
                                  is used for security to prevent cross site tracking. -->
+                                 @if(auth()->user()->role === 'admin')
                                 <div class="mt-4 flex space-x-2">
                                     <a href="{{ route('albums.edit', $album) }}" class="text-gray-600 bg-green-300 hover:bg-green-700 font-bold py-2 px-4 rounded">Edit</a>
 
@@ -53,6 +57,7 @@
                                         <button type="submit" class="bg-red-500 hover:bg-red-700 text-gray-600 font-bold py-2 px-4 rounded">Delete</button>
                                     </form>
                                 </div>
+                                @endif
                             </div>
                             @endforeach
             </div>

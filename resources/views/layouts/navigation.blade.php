@@ -19,9 +19,12 @@
                     <x-nav-link :href="route('albums.index')" :active="request()->routeIs('albums.index')">
                         {{ __('View All Albums') }}
                     </x-nav-link>
-                    <x-nav-link :href="route('albums.create')" :active="request()->routeIs('albums.index')">
+
+                    @if(auth()->user()->role === 'admin')
+                    <x-nav-link :href="route('albums.create')" :active="request()->routeIs('albums.create')">
                         {{ __('Create New Album') }}
                     </x-nav-link>
+                    @endif
 
                     <div class="flex items-center max-w-md mx-auto p-3">
                     </div>
@@ -42,7 +45,7 @@
                             </div>
                         </button>
                     </x-slot>
-
+                    
                     <x-slot name="content">
                         <x-dropdown-link :href="route('profile.edit')">
                             {{ __('Profile') }}
