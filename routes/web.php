@@ -1,9 +1,11 @@
 <?php
 
+use App\Models\Song;
+use Phiki\Phast\Root;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\SongController;
 use App\Http\Controllers\AlbumController;
 use App\Http\Controllers\ProfileController;
-use Phiki\Phast\Root;
 
 /* This file contains all of the routes for the project. Essentially these
 are all of the different pages of the website, for example albums.index is
@@ -14,11 +16,13 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::resource('songs', SongController::class);
 Route::resource('albums', AlbumController::class);
 Route::get('/albums', [AlbumController::class, 'index'])->name('albums.index');
 Route::get('/albums/create', [AlbumController::class, 'create'])->name('albums.create');
 Route::get('/albums/{album}', [AlbumController::class, 'show'])->name('albums.show');
 Route::post('/albums', [AlbumController::class, 'store'])->name('albums.store');
+Route::post('/albums/{album}/songs', [SongController::class, 'store'])->name('albums.songs.store');
 Route::get('/albums/{album}/edit', [AlbumController::class, 'edit'])->name('albums.edit');
 Route::put('/albums/{album}', [AlbumController::class, 'update'])->name('albums.update');
 Route::delete('/albums/{album}', [AlbumController::class, 'destroy'])->name('albums.destroy');
