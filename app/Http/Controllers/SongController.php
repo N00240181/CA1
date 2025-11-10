@@ -27,27 +27,35 @@ class SongController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request, Album $album)
-    {
+public function store(Request $request)
+{
+    $validated = $request->validate([
+        'track_number' => 'required|integer',
+        'name' => 'required|string|max:255',
+        'runtime' => 'required|string|max:10',
+        'artist' => 'required|string|max:255',
+        'release_date' => 'required|date',
+        'album_id' => 'required|exists:albums,id',
+    ]);
 
-        $request->validate([
-            'name' => 'required|string|max:255',
-            'runtime' => 'required|string|max:10',
-            'artist' => 'required|string|max:255',
-            'release_date' => 'required|date',
-            'album_id' => 'nullable|exists:albums,id',
-        ]);
-        
-        $album->songs()->create([
-            'track_number' => $request->input('track_number'),
-            'name' => $request->input('name'),
-            'runtime' => $request->input('runtime'),
-            'artist' => $request->input('artist'),
-            'release_date' => $request->input('release_date'),
-        ]);
+    $album = Album::find($validated['album_id']);
 
-        return redirect()->route('albums.show', $album)->with('success', 'Song added successfully.');
+    if (!$album) {
+        return redirect()->back()->withErrors(['album_id' => 'Selected album does not exist.']);
     }
+
+    $album->songs()->create([
+        'track_number' => $validated['track_number'],
+        'name' => $validated['name'],
+        'runtime' => $validated['runtime'],
+        'artist' => $validated['artist'],
+        'release_date' => $validated['release_date'],
+        'album_id' => $album->id,
+    ]);
+
+    return redirect()->route('albums.show', $album)
+        ->with('success', 'Song added successfully.');
+}
 
     /**
      * Display the specified resource.
@@ -62,7 +70,13 @@ class SongController extends Controller
      */
     public function edit(Song $song)
     {
-        //
+        $user = auth()->user();
+
+if (!$user || ($user->id !== $song->user_id && $user->role !== 'admin')) {
+    return redirect()->route('albums.index')->with('error', 'Access denied.');
+}
+
+ return view('songs.edit', compact('song'));
     }
 
     /**
@@ -70,7 +84,10 @@ class SongController extends Controller
      */
     public function update(Request $request, Song $song)
     {
-        //
+        $song->update($request->only(['track_number', 'name', 'artist', 'runtime', 'release_date']));
+
+        return redirect()->route('albums.show', $song->album_id)
+                         ->with('success', 'Review updated successfully.');
     }
 
     /**
@@ -78,6 +95,8 @@ class SongController extends Controller
      */
     public function destroy(Song $song)
     {
-        //
+        $song->delete();
+
+        return to_route('albums.index')->with('success', 'Song deleted successfully!');
     }
 }

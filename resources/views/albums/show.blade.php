@@ -22,15 +22,30 @@
                     />
 
                     @foreach ($album->songs as $song)
-                        <x-song-details
-                        :track_number="$song->track_number"
-                        :name="$song->name"
-                        :runtime="$song->runtime"
-                        :artist="$song->artist"
-                        :release_date="$song->release_date"
-                        />
-                    @endforeach
-
+    <x-song-details
+        :track_number="$song->track_number"
+        :name="$song->name"
+        :runtime="$song->runtime"
+        :artist="$song->artist"
+        :release_date="$song->release_date"
+    />
+    <div class="flex justify-end mb-4">
+        <a href="{{ route('songs.edit', $song) }}" 
+           class="bg-yellow-500 text-white px-4 py-1 rounded hover:bg-yellow-600">
+           Edit Song
+        </a>
+    </div>
+    <div class="flex justify-end mb-4">
+        <form action="{{ route('songs.destroy', $song) }}" method="POST">
+    @csrf
+    @method('DELETE')
+    <button type="submit">Delete</button>
+</form>
+    </div>
+@endforeach
+        <div class="py-12">
+        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
+            <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg border-2 border-gray-300 py-5">
                     <h4 class="font-semibold text-xl text-gray-800 leading-tight px-12 mt-8">Add a New Song:</h4>
     <form action="{{ route('albums.songs.store', $album) }}" method="POST" class="max-w-md mx-auto mt-4">
         @csrf
@@ -54,6 +69,7 @@
             <label for="release_date" class="block text-gray-700 font-medium mb-2">Release Date:</label>
             <input type="date" name="release_date" id="release_date" class="w-full border border-gray-300 p-2 rounded" required>
         </div>
+        
         <input type="hidden" name="album_id" value="{{ $album->id }}">
 
         <button type="submit" class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">Add Song</button>

@@ -83,8 +83,7 @@ class AlbumController extends Controller
     {
         $album->load('songs');
 
-        return view('albums.show')->with('album', $album);
-        return view('songs.show', compact('song'));
+        return view('albums.show', compact('album'));
     }
 
     /* This function returns the edit view which allows the user to edit the album. */
