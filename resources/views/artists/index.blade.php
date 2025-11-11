@@ -1,7 +1,7 @@
 <x-app-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('Albums') }}
+            {{ __('Artists') }}
         </h2>
     </x-slot>
 
@@ -25,27 +25,25 @@
                     <div class="grid grid-cols-1 sm:grid-cols2 lg:grid-cols-3 gap-6">
                             <!-- This for each goes through all the albums and displays
                              them as cards. -->
-                            @foreach($albums as $album)
+                            @foreach($artists as $artist)
                                 <div class="border p-4 rounded-lg shadow-md">
-                                <a href="{{ route('albums.show', $album) }}">
-                                    <x-album-card
-                                        :name="$album->name"
-                                        :runtime="$album->runtime"
-                                        :release_date="$album->release_date"
-                                        :album_url="$album->album_url"
-                                        :album_cover="$album->album_cover"
-                                        :spotify_link="$album->spotify_link"
+                                <a href="{{ route('artists.show', $artist) }}">
+                                    <x-artist-card
+                                        :name="$artist->name"
+                                        :date_of_birth="$artist->date_of_birth"
+                                        :description="$artist->description"
+                                        :picture_url="$artist->picture_url"
                                         />
                                 </a>
 
                                 <!-- This div contains the routes to the edit and
-                                 delete functions to update and destroy albums. @csrf
+                                 delete functions to update and destroy artists. @csrf
                                  is used for security to prevent cross site tracking. -->
                                  @if(auth()->user()->role === 'admin')
                                 <div class="mt-4 flex space-x-2">
-                                    <a href="{{ route('albums.edit', $album) }}" class="text-gray-600 bg-green-300 hover:bg-green-700 font-bold py-2 px-4 rounded">Edit</a>
+                                    <a href="{{ route('artists.edit', $artist) }}" class="text-gray-600 bg-green-300 hover:bg-green-700 font-bold py-2 px-4 rounded">Edit</a>
 
-                                    <form action="{{ route('albums.destroy', $album) }}" method="POST" onsubmit="return confirm('Are you sure you want to delete this album?');">
+                                    <form action="{{ route('artists.destroy', $artist) }}" method="POST" onsubmit="return confirm('Are you sure you want to delete this artist?');">
                                         @csrf
                                         @method('DELETE')
                                         <button type="submit" class="bg-red-500 hover:bg-red-700 text-gray-600 font-bold py-2 px-4 rounded">Delete</button>

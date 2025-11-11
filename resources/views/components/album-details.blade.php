@@ -10,7 +10,7 @@
     <div class="overflow-hidden rounded-lg mb-4 flex justify-center">
         <img src="{{ asset('images/albums/' . $album_cover ) }}" alt="{{ $name }}" class="class="w-full h-auto mt-4 rounded-lg object-cover"">
     </div>
-
+    
     <h4 class="text-gray-500 text-sm italic mb-4" style="font-size: 1rem;">Link: <a href="{{ $album_url }}">{{ $album_url }}</a></h4>
     <h2 class="text-gray-500 text-sm italic mb-4" style="font-size: 1rem;">Runtime: {{ $runtime }} mins</h2>
     <h2 class="text-gray-500 text-sm italic mb-4" style="font-size: 1rem;">Released: {{ $release_date }}</h2>   

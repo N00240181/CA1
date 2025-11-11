@@ -26,6 +26,16 @@
                     </x-nav-link>
                     @endif
 
+                    <x-nav-link :href="route('artists.index')" :active="request()->routeIs('artists.index')">
+                        {{ __('View All Artists') }}
+                    </x-nav-link>
+
+                    @if(auth()->user()->role === 'admin')
+                    <x-nav-link :href="route('artists.create')" :active="request()->routeIs('artists.create')">
+                        {{ __('Create New Artist') }}
+                    </x-nav-link>
+                    @endif
+
                     <div class="flex items-center max-w-md mx-auto p-3">
                     </div>
                 </div>
