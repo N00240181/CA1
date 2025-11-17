@@ -18,10 +18,10 @@ $albums = Album::orderBy('name')->get();
     <h2 class="text-gray-500 text-sm italic mb-4" style="font-size: 1rem;">Birthday: {{ $date_of_birth }}</h2>
 
     <div class="mb-4">
-    <label for="album_artist" class="block text-sm font-medium text-gray-700">Albums:</label>
+    <h2 for="album_artist" class="block text-sm font-medium text-gray-700 italic bold mb-4" style="font-size: 1.5rem;">Albums:</h2>
     <div class="mt-1 block w-full border-black-100 rounded-md shadow-sm">
         @foreach($artist->albums as $album)
-    <ul><div class="mx-3 rounded-lg" ><a href="{{ route('albums.show', $album) }}">{{ $album->name }}</a></div></ul>
+    <ul><div class="py-8 rounded-lg"><a href="{{ route('albums.show', $album) }}" class="text-gray-500 text-sm underline italic mb-4" style="font-size: 1rem;">{{ $album->name }}</a></div></ul>
         @endforeach
     </div>
 </div>

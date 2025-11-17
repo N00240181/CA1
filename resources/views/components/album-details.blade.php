@@ -21,9 +21,10 @@ $artists = Artist::orderBy('name')->get();
     <h4 class="text-gray-500 text-sm italic mb-4" style="font-size: 1rem;">Link: <a href="{{ $album_url }}">{{ $album_url }}</a></h4>
     <h2 class="text-gray-500 text-sm italic mb-4" style="font-size: 1rem;">Runtime: {{ $runtime }} mins</h2>
     <h2 class="text-gray-500 text-sm italic mb-4" style="font-size: 1rem;">Released: {{ $release_date }}</h2>
+    <h2 for="album_artist" class="block text-sm font-medium text-gray-700 italic bold mb-4" style="font-size: 1.5rem;">Artists:</h2>
     <div class="mt-1 block w-full border-black-100 rounded-md shadow-sm">
         @foreach($album->artists as $artist)
-    <ul><div class="mx-3 rounded-lg" ><a href="{{ route('artists.show', $album) }}">{{ $artist->name }}</a></div></ul>
+    <ul><div class="py-8 rounded-lg" ><a href="{{ route('artists.show', $artist) }}" class="text-gray-500 text-sm underline italic mb-4" style="font-size: 1rem;">{{ $artist->name }}</a></div></ul>
         @endforeach
     </div>
     <?php if (connection_status() == 0) { ?>
