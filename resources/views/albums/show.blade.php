@@ -13,6 +13,7 @@
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 text-gray-900">
                     <x-album-details
+                        :album="$album"
                         :name="$album->name"
                         :runtime="$album->runtime"
                         :release_date="$album->release_date"

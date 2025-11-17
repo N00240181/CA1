@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Album;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 
 class AlbumController extends Controller
 {
@@ -38,6 +39,7 @@ class AlbumController extends Controller
         if (auth()->user()->role !== 'admin') {
             return redirect()->route('albums.index')->with('error', 'Access denied.');
         }
+
         return view('albums.create');
     }
 

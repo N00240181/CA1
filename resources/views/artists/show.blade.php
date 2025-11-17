@@ -10,6 +10,7 @@
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 text-gray-900">
                     <x-artist-details
+                        :artist="$artist"
                         :name="$artist->name"
                         :date_of_birth="$artist->date_of_birth"
                         :description="$artist->description"

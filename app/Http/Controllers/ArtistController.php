@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Album;
 use App\Models\Artist;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 
 class ArtistController extends Controller
 {
@@ -17,7 +19,8 @@ class ArtistController extends Controller
         else {
             $artists = Artist::all();
         }
-    
+        
+        $artists = Artist::with('albums')->get();
         return view('artists.index', compact('artists'));
     }
 
@@ -26,6 +29,8 @@ class ArtistController extends Controller
         if (auth()->user()->role !== 'admin') {
             return redirect()->route('artists.index')->with('error', 'Access denied.');
         }
+
+        $albums = Album::all();
         return view('artists.create');
     }
 
@@ -47,20 +52,27 @@ class ArtistController extends Controller
             'name' => $request->name,
             'date_of_birth' => $request->date_of_birth,
             'description' => $request->description,
-            'picture_url' => $request->picture_url,
+            'picture_url' => $imageName,
         ]);
+
+        if ($request->has('albums')) {
+            $artist->albums()->attach($request->albums);
+        }
 
         return to_route('artists.index')->with('success', 'Artist created successfully!');
     }
 
     public function show(Artist $artist)
     {
+        $artist->load('albums');
         return view('artists.show', compact('artist'));
     }
 
     public function edit(Artist $artist)
     {
-        return view('artists.edit')->with('artist', $artist);
+        $albums = Album::all();
+        $artistAlbums = $artist->albums->pluck('id')->toArray();
+        return view('artists.edit', compact('artist', 'albums', 'artistAlbums'));
     }
 
     public function update(Request $request, Artist $artist)
@@ -84,12 +96,17 @@ class ArtistController extends Controller
             'description' => $request->description,
             'picture_url' => $artist->picture_url,
         ]);
+
+        if ($request->has('albums')) {
+            $artist->albums()->sync($request->albums);
+        }
  
         return to_route('artists.index')->with('success', 'Artist updated successfully!');
     }
 
     public function destroy(Artist $artist)
     {
+        $artist->albums()->detach();
         $artist->delete();
 
         return to_route('artists.index')->with('success', 'Artist deleted successfully!');

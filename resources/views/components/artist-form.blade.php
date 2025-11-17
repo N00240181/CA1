@@ -2,6 +2,12 @@
 
 <!-- This is the view used for creating and editing artists. -->
 
+<?php
+
+use App\Models\Album;
+$albums = Album::orderBy('name')->get();
+?>
+
 <form action="{{ $action }}" method="POST" enctype="multipart/form-data">
     @csrf
     @if($method === 'PUT' || $method === 'PATCH')
@@ -25,7 +31,7 @@
     <div class="mb-4">
         <label for="date_of_birth" class="block text-gray-700 font-bold mb-2">Date Of Birth:</label>
         <input 
-        type="text"
+        type="date"
         name="date_of_birth"
         id="date_of_birth"
         value="{{ old('date_of_birth', $artist->date_of_birth ?? '') }}"
@@ -39,7 +45,7 @@
     <div class="mb-4">
         <label for="description" class="block text-gray-700 font-bold mb-2">Description:</label>
         <input 
-        type="date"
+        type="text"
         name="description"
         id="description"
         value="{{ old('description', $artist->description ?? '') }}"
@@ -69,6 +75,28 @@
             <img src="{{ asset($artist->picture_url) }}" alt="{{ $artist->name }}" class="w-24 h-32 object-cover">
         </div>
     @endisset
+
+    <div class="mb-4">
+    <label for="album_artist" class="block text-sm font-medium text-gray-700">Albums:</label>
+    <div class="mt-1 block w-full border-black-100 rounded-md shadow-sm">
+        @foreach($albums as $album)
+        <label>
+            <input 
+                type="checkbox" 
+                name="albums[]" 
+                value="{{ $album->id }}"
+                class="mx-3 rounded-lg"
+                {{ isset($artist) && $artist->albums->contains($album->id) ? 'checked' : '' }}
+                >
+        {{ $album->name }}
+</label>
+        @endforeach
+    </div>
+        
+    @error('picture_url')
+        <p class="text-red-600 text-sm">{{ $message }}</p>
+    @enderror
+</div>
 
     <div>
         <x-primary-button>
