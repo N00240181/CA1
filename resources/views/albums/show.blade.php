@@ -30,17 +30,19 @@
         :artist="$song->artist"
         :release_date="$song->release_date"
     />
-    <div class="flex justify-end mb-4">
+    <div class="grid grid-cols-1">
+    <div class="flex justify-center mb-4">
         <a href="{{ route('songs.edit', $song) }}" 
-           class="bg-yellow-500 text-white px-4 py-1 rounded hover:bg-yellow-600">
+           class="bg-green-500 text-white px-4 py-1 rounded hover:bg-green-600">
            Edit Song
         </a>
     </div>
-    <div class="flex justify-end mb-4">
+    <div class="flex justify-center mb-4">
         <form action="{{ route('songs.destroy', $song) }}" method="POST">
     @csrf
     @method('DELETE')
-    <button type="submit">Delete</button>
+    <button type="submit" class="bg-red-500 text-white px-4 py-1 rounded hover:bg-red-600">Delete</button>
+</div>
 </form>
     </div>
 @endforeach
