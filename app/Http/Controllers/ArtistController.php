@@ -20,7 +20,7 @@ class ArtistController extends Controller
             $artists = Artist::all();
         }
         
-        $artists = Artist::with('albums')->get();
+        /* $artists = Artist::with('albums')->get(); */
         return view('artists.index', compact('artists'));
     }
 

@@ -17,8 +17,8 @@
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 text-gray-900">
-                    <h3 class="text-lg font-medium text-gray-900 mb-4">All Albums</h3>
-                      <form action="{{ route('albums.index') }}" method="GET" class="flex w-full py-5">
+                    <h3 class="text-lg font-medium text-gray-900 mb-4">All Artists</h3>
+                      <form action="{{ route('artists.index') }}" method="GET" class="flex w-full py-5">
                         <input type="text" name="search" id="search" placeholder="Search...">
                         <button type="submit" class="ms-2 px-4 py-2 bg-orange-500 text-white rounded hover:bg-orange-700">Search</button>
                       </form>
