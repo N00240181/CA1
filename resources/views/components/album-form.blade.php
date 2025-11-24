@@ -1,5 +1,11 @@
 @props(['action', 'method', 'album'])
 
+<?php
+
+use App\Models\Artist;
+$artists = Artist::orderBy('name')->get();
+?>
+
 <!-- This is the view used for creating and editing albums. -->
 
 <form action="{{ $action }}" method="POST" enctype="multipart/form-data">
@@ -76,7 +82,9 @@
         value="{{ old('spotify_link', $album->spotify_link ?? '') }}"
         placeholder="Enter the url of the album"
         required
-        class="mt-1 block w-full border-gray-300 rounded-md shadow-sm />
+        class="mt-1 block w-full border-gray-300 rounded-md shadow-sm 
+        />
+
     @error('spotify_link')
         <p class="text-red-600 text-sm">{{ $message }}</p>
     @enderror
@@ -96,11 +104,29 @@
     @enderror
 </div>
 
-    @isset($album->album_cover)
-        <div class="mb-4">
-            <img src="{{ asset($album->album_cover) }}" alt="{{ $album->name }}" class="w-24 h-32 object-cover">
-        </div>
-    @endisset
+<div class="mb-4">
+    <label for="album_artist" class="block text-sm font-medium text-gray-700">Artists:</label>
+    <div class="mt-1 block w-full border-black-100 rounded-md shadow-sm">
+        @foreach($artists as $artist)
+        <label>
+            <input 
+                type="checkbox" 
+                name="artists[]" 
+                value="{{ $artist->id }}"
+                class="mx-3 rounded-lg"
+                {{ isset($album) && $album->artists->contains($artist->id) ? 'checked' : '' }}
+                >
+        {{ $artist->name }}
+</label>
+        @endforeach
+    </div>
+</div>
+    </div>
+        
+    @error('picture_url')
+        <p class="text-red-600 text-sm">{{ $message }}</p>
+    @enderror
+</div>
 
     <div>
         <x-primary-button>

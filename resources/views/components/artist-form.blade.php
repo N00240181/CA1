@@ -70,12 +70,6 @@ $albums = Album::orderBy('name')->get();
     @enderror
 </div>
 
-    @isset($artist->picture_url)
-        <div class="mb-4">
-            <img src="{{ asset($artist->picture_url) }}" alt="{{ $artist->name }}" class="w-24 h-32 object-cover">
-        </div>
-    @endisset
-
     <div class="mb-4">
     <label for="album_artist" class="block text-sm font-medium text-gray-700">Albums:</label>
     <div class="mt-1 block w-full border-black-100 rounded-md shadow-sm">

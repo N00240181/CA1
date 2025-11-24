@@ -59,7 +59,7 @@ class AlbumController extends Controller
             'release_date' => 'required|date',
             'runtime' => 'required|integer',
             'album_url' => 'required|url',
-            'album_cover' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
+            'album_cover' => 'required|image|mimes:jpeg,png,jpg,gif',
             'spotify_link' => 'required|string',
         ]);
 
@@ -92,6 +92,8 @@ class AlbumController extends Controller
     public function edit(Album $album)
     {
         return view('albums.edit')->with('album', $album);
+        $artistAlbums = $album->artists->pluck('id')->toArray();
+        return view('albums.edit', compact('album', 'artists', 'artistAlbums'));
     }
 
     /* This function is like the store function, where it takes in the request
@@ -106,7 +108,7 @@ class AlbumController extends Controller
             'release_date' => 'required|date',
             'runtime' => 'required|integer',
             'album_url' => 'required|url',
-            'album_cover' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
+            'album_cover' => 'nullable|image|mimes:jpeg,png,jpg,gif',
             'spotify_link' => 'required|string',
         ]);
 

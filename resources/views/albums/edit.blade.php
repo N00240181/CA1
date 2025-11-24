@@ -15,7 +15,7 @@
                     <h3 class="font-semibold text-lg mb-4">Edit Album</h3>
 
                     <x-album-form 
-                        :action="route('albums.update', $album)" 
+                        :action="route('albums.update', $album)"
                         :method="'PUT'"
                         :album="$album"
                     />
