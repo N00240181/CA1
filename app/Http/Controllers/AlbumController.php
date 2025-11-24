@@ -57,7 +57,7 @@ class AlbumController extends Controller
         $request->validate([
             'name' => 'required|string|max:255',
             'release_date' => 'required|date',
-            'runtime' => 'required|integer',
+            'runtime' => 'required|string',
             'album_url' => 'required|url',
             'album_cover' => 'required|image|mimes:jpeg,png,jpg,gif',
             'spotify_link' => 'required|string',
@@ -106,7 +106,7 @@ class AlbumController extends Controller
         $request->validate([
             'name' => 'required|string|max:255',
             'release_date' => 'required|date',
-            'runtime' => 'required|integer',
+            'runtime' => 'required|string',
             'album_url' => 'required|url',
             'album_cover' => 'nullable|image|mimes:jpeg,png,jpg,gif',
             'spotify_link' => 'required|string',
