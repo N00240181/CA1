@@ -24,27 +24,14 @@
 
                     @foreach ($album->songs as $song)
     <x-song-details
+        :id="$song->id"
         :track_number="$song->track_number"
         :name="$song->name"
         :runtime="$song->runtime"
         :artist="$song->artist"
         :release_date="$song->release_date"
     />
-    <div class="grid grid-cols-1">
-    <div class="flex justify-center mb-4">
-        <a href="{{ route('songs.edit', $song) }}" 
-           class="bg-green-500 text-white px-4 py-1 rounded hover:bg-green-600">
-           Edit Song
-        </a>
-    </div>
-    <div class="flex justify-center mb-4">
-        <form action="{{ route('songs.destroy', $song) }}" method="POST">
-    @csrf
-    @method('DELETE')
-    <button type="submit" class="bg-red-500 text-white px-4 py-1 rounded hover:bg-red-600">Delete</button>
-</div>
-</form>
-    </div>
+    
 @endforeach
         <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">

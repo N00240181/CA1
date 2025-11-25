@@ -95,8 +95,9 @@ if (!$user || ($user->id !== $song->user_id && $user->role !== 'admin')) {
      */
     public function destroy(Song $song)
     {
+        $album_id = $song->album_id;
         $song->delete();
 
-        return to_route('albums.index')->with('success', 'Song deleted successfully!');
+        return to_route('albums.show', $album_id)->with('success', 'Song deleted successfully!');
     }
 }

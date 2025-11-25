@@ -31,10 +31,10 @@ class ArtistController extends Controller
         }
 
         $albums = Album::all();
-        return view('artists.create');
+        return view('artists.create', compact('albums'));
     }
 
-    public function store(Request $request)
+    public function store(Request $request, Artist $artist)
     {
         $request->validate([
             'name' => 'required|string|max:255',
@@ -48,7 +48,7 @@ class ArtistController extends Controller
             $request->picture_url->move(public_path('images/artists'), $imageName);
         }
 
-        Artist::create([
+        $artist = Artist::create([
             'name' => $request->name,
             'date_of_birth' => $request->date_of_birth,
             'description' => $request->description,
@@ -70,7 +70,8 @@ class ArtistController extends Controller
 
     public function edit(Artist $artist)
     {
-        $albums = Album::all();
+        /* $albums = Album::all(); */
+        return view('artists.edit')->with('artist', $artist);
         $artistAlbums = $artist->albums->pluck('id')->toArray();
         return view('artists.edit', compact('artist', 'albums', 'artistAlbums'));
     }
@@ -105,6 +106,7 @@ class ArtistController extends Controller
     }
 
     public function destroy(Artist $artist)
+    /* This function */
     {
         $artist->albums()->detach();
         $artist->delete();
