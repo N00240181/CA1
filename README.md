@@ -14,4 +14,6 @@ During the third week I made it so you can link artists to albums when creating 
 
 Finally during the fourth week I made a few quality of life fixes, like when you try and edit an album it automatically has its artist checked. Now I'm using this time to continue polishing the project and checking if there are any bugs left. I will start recording the project on Thursday or Friday and then I should be finished.
 
-<p align center>I believe that CA2 has been much easier than CA1, I mean it makes sense considering I already had one third of it done already. There were fewer errors during this than CA1, and I had to ask for help less as well. Also I've been trying to make sure that I'm understanding the code I've been writing and I hope that my video reflects that. I'm going to have one last look at this tomorrow and then get started with making the video afterwards.</p>
+I finished recording the video and added more comments explaining what things do. I will put all the work together and then upload it to teams.
+
+<p align center>I believe that CA2 has been much easier than CA1, I mean it makes sense considering I already had one third of it done already. There were fewer errors during this than CA1, and I had to ask for help less as well. Also I've been trying to make sure that I'm understanding the code I've been writing and I hope that my video reflects that.</p>

@@ -11,6 +11,7 @@ class Artist extends Model
 
     protected $fillable = ['name', 'date_of_birth', 'description', 'picture_url'];
 
+    /* Defines the many to many relationship with albums */
     public function albums()
     {
         return $this->belongsToMany(Album::class);

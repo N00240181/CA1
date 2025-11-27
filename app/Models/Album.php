@@ -19,11 +19,13 @@ class Album extends Model
     ];
     public $timestamps = false;
 
+    /* Defines the one to many relationship with songs */
     public function songs()
     {
         return $this->hasMany(Song::class);
     }
 
+    /* Defines the many to many relationship with artists */
     public function artists()
     {
         return $this->belongsToMany(Artist::class);

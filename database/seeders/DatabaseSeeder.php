@@ -5,7 +5,7 @@ namespace Database\Seeders;
 use Illuminate\Database\Seeder;
 use Carbon\Carbon;
 
-/* This runs the AlbumSeeder which populates the database. */
+/* This runs all of the seeders which populates the database. */
 
 class DatabaseSeeder extends Seeder
 {
@@ -13,6 +13,7 @@ class DatabaseSeeder extends Seeder
     {
         $this->call(AlbumSeeder::class);
         $this->call(SongSeeder::class);
+        $this->call(ArtistSeeder::class);
         $this->call(AdminSeeder::class);
     }
 }

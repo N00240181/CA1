@@ -15,6 +15,7 @@ class Song extends Model
         'album_id',
     ];
 
+    /* Defines the one to many relationship with albums */
     public function album()
     {
     return $this->belongsTo(Album::class);

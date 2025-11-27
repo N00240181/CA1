@@ -5,6 +5,7 @@
         </h2>
     </x-slot>
   
+<!-- Redirects the user to the albums index after 2 seconds -->
 <?php 
   header( "refresh:2;url=../albums/" ); 
 ?>

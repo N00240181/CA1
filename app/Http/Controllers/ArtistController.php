@@ -29,7 +29,7 @@ class ArtistController extends Controller
         if (auth()->user()->role !== 'admin') {
             return redirect()->route('artists.index')->with('error', 'Access denied.');
         }
-
+        /* Displays all albums as check boxes */
         $albums = Album::all();
         return view('artists.create', compact('albums'));
     }
@@ -98,6 +98,7 @@ class ArtistController extends Controller
             'picture_url' => $artist->picture_url,
         ]);
 
+        /* If updating the albums it changes the albums data */
         if ($request->has('albums')) {
             $artist->albums()->sync($request->albums);
         }
@@ -106,7 +107,8 @@ class ArtistController extends Controller
     }
 
     public function destroy(Artist $artist)
-    /* This function */
+    /* If an artist is deleted, it is detached from the album, so it won't
+    delete the album */
     {
         $artist->albums()->detach();
         $artist->delete();

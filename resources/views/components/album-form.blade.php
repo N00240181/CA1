@@ -1,5 +1,7 @@
 @props(['action', 'method', 'album'])
 
+<!-- This php is used to link the albums with the artist form, so you can select
+ what artists the album is part of. -->
 <?php
 
 use App\Models\Artist;
@@ -104,6 +106,7 @@ $artists = Artist::orderBy('name')->get();
     @enderror
 </div>
 
+<!-- This is used to create check boxes the admin can click on to define which artists are part of the album -->
 <div class="mb-4">
     <label for="album_artist" class="block text-sm font-medium text-gray-700">Artists:</label>
     <div class="mt-1 block w-full border-black-100 rounded-md shadow-sm">

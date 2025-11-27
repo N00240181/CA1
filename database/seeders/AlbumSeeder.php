@@ -23,7 +23,7 @@ class AlbumSeeder extends Seeder
                 'album_url' => 'https://en.wikipedia.org/wiki/The_Chronic',
                 'album_cover' => '1759846005.jpg',
                 'spotify_link' => '2V5rhszUpCudPcb01zevOt',
-                'artist_ids' => [1],
+                'artist_ids' => [2],
             ],
             [
                 'name' => 'Operation Doomsday',
@@ -32,7 +32,7 @@ class AlbumSeeder extends Seeder
                 'album_url' => 'https://en.wikipedia.org/wiki/Operation:_Doomsday',
                 'album_cover' => '1760373656.gif',
                 'spotify_link' => '5bjUbZPVTEQcb6W3LquX1E',
-                'artist_ids' => [2],
+                'artist_ids' => [1],
             ],
             [
                 'name' => 'Mm.. Food',
@@ -41,7 +41,7 @@ class AlbumSeeder extends Seeder
                 'album_url' => 'https://en.wikipedia.org/wiki/Mm..Food',
                 'album_cover' => '1760374506.jpg',
                 'spotify_link' => '1UcS2nqUhxrZjrBZ3tHk2N',
-                'artist_ids' => [2],
+                'artist_ids' => [1],
             ],
             [
                 'name' => 'The Works',

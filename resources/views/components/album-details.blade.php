@@ -1,5 +1,7 @@
 @props(['name', 'release_date', 'runtime', 'album_url', 'album_cover', 'spotify_link', 'album'])
 
+<!-- This php is used to link the albums with the artist form, so you can select
+ what artists the album is part of. -->
 <?php
 
 use App\Models\Artist;

@@ -1,3 +1,4 @@
+<!-- This is the page which displays all artists -->
 <x-app-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
@@ -23,7 +24,7 @@
                         <button type="submit" class="ms-2 px-4 py-2 bg-orange-500 text-white rounded hover:bg-orange-700">Search</button>
                       </form>
                     <div class="grid grid-cols-1 sm:grid-cols2 lg:grid-cols-3 gap-6">
-                            <!-- This for each goes through all the albums and displays
+                            <!-- This for each goes through all the artists and displays
                              them as cards. -->
                             @foreach($artists as $artist)
                                 <div class="border p-4 rounded-lg shadow-md">

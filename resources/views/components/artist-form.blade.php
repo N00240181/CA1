@@ -2,6 +2,8 @@
 
 <!-- This is the view used for creating and editing artists. -->
 
+<!-- This php is used to link the albums with the artist form, so you can select
+ what album the artist is part of. -->
 <?php
 
 use App\Models\Album;
@@ -49,7 +51,7 @@ $albums = Album::orderBy('name')->get();
         name="description"
         id="description"
         value="{{ old('description', $artist->description ?? '') }}"
-        placeholder="Enter the release date of the artist"
+        placeholder="Enter the description of the artist"
         required
         class="mt-1 block w-full border-gray-300 rounded-md shadow-sm />
     @error('description')
@@ -70,6 +72,7 @@ $albums = Album::orderBy('name')->get();
     @enderror
 </div>
 
+<!-- This is used to display all of the albums as check boxes so the admin can add the artist to them -->
     <div class="mb-4">
     <label for="album_artist" class="block text-sm font-medium text-gray-700">Albums:</label>
     <div class="mt-1 block w-full border-black-100 rounded-md shadow-sm">

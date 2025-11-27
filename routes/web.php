@@ -17,6 +17,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+/* Album routes */
 Route::resource('albums', AlbumController::class);
 Route::get('/albums', [AlbumController::class, 'index'])->name('albums.index');
 Route::get('/albums/create', [AlbumController::class, 'create'])->name('albums.create');
@@ -26,6 +27,7 @@ Route::get('/albums/{album}/edit', [AlbumController::class, 'edit'])->name('albu
 Route::put('/albums/{album}', [AlbumController::class, 'update'])->name('albums.update');
 Route::delete('/albums/{album}', [AlbumController::class, 'destroy'])->name('albums.destroy');
 
+/* Song routes */
 Route::resource('songs', SongController::class);
 Route::post('albums/{album}/songs', [SongController::class, 'store'])->name('songs.store');
 Route::post('/albums/{album}/songs', [SongController::class, 'store'])->name('albums.songs.store');
@@ -34,6 +36,7 @@ Route::get('/albums/{album}/songs/{song}', [AlbumController::class, 'show'])->na
 Route::get('/albums/songs/{song}/edit', [AlbumController::class, 'edit'])->name('albums.songs.edit');
 Route::put('/albums/{album}/songs', [AlbumController::class, 'update'])->name('albums.songs.update');
 
+/* Artist routes */
 Route::resource('artists', ArtistController::class)->middleware('auth');
 Route::get('/artists', [ArtistController::class, 'index'])->name('artists.index');
 Route::get('/artists/{artist}', [ArtistController::class, 'show'])->name('artists.show');

@@ -1,5 +1,7 @@
 @props(['name', 'date_of_birth', 'description', 'picture_url', 'artist'])
 
+<!-- This php is used to link the albums with the artist form, so you can select
+ what album the artist is part of. -->
 <?php
 
 use App\Models\Album;
